@@ -13,8 +13,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  final AppRouter appRouter;
-  final Connectivity connectivity;
+  final AppRouter? appRouter;
+  final Connectivity? connectivity;
   const MyApp({
     Key? key,
     required this.appRouter,
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<InternetCubit>(
-          create: (context) => InternetCubit(connectivity: connectivity),
+          create: (context) => InternetCubit(connectivity: connectivity!),
         ),
         BlocProvider<CounterCubit>(
           create: (context) => CounterCubit(),
@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        onGenerateRoute: appRouter.onGenereteRoute,
+        onGenerateRoute: appRouter!.onGenereteRoute,
       ),
     );
   }
